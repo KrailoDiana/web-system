@@ -224,6 +224,9 @@ export const MetricsProvider: React.FC<{ children: React.ReactNode }> = ({ child
       const futureDate = new Date(lastDate);
       futureDate.setMonth(futureDate.getMonth() + i);
       
+      // Виводимо лише січень кожного року
+      if (futureDate.getMonth() !== 0) continue;
+      
       const predictedValue = (slope * (n + i - 1) + intercept) * modifier;
       
       forecast.push({
