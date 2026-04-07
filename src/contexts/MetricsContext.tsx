@@ -78,7 +78,7 @@ interface MetricsContextType {
   removeChartFromDashboard: (chartId: string) => void;
   importData: (data: Record<string, MetricData[]>) => void;
   exportData: () => Record<string, MetricData[]>;
-  calculateForecast: (metricId: string, months: number, changePercent?: number, changeType?: 'increase' | 'decrease') => MetricData[];
+  calculateForecast: (metricId: string, months?: number, changePercent?: number, changeType?: 'increase' | 'decrease') => MetricData[];
 }
 
 const MetricsContext = createContext<MetricsContextType | undefined>(undefined);
@@ -187,7 +187,7 @@ export const MetricsProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   const calculateForecast = useCallback((
     metricId: string, 
-    months: number = 5,
+    months: number = 60,
     changePercent?: number,
     changeType?: 'increase' | 'decrease'
   ): MetricData[] => {

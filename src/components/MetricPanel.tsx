@@ -120,7 +120,7 @@ const MetricPanel = ({ metricId, onClose }: MetricPanelProps) => {
 
     const forecast = calculateForecast(
       metricId,
-      5,
+      60,
       forecastParams.changePercent > 0 ? forecastParams.changePercent : undefined,
       forecastParams.changePercent > 0 ? forecastParams.changeType : undefined
     );
@@ -330,7 +330,7 @@ const MetricPanel = ({ metricId, onClose }: MetricPanelProps) => {
             className="btn-secondary w-full disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <TrendingUp className="w-4 h-4 mr-2" />
-            Побудувати прогноз (5 міс.)
+            Побудувати прогноз (5 років)
           </button>
         </div>
 
@@ -391,7 +391,7 @@ const MetricPanel = ({ metricId, onClose }: MetricPanelProps) => {
 
             {showForecast && forecastData.length > 0 && (
               <div className="p-3 rounded-lg bg-accent/20 text-sm">
-                <p className="font-medium text-accent-foreground mb-2">Прогноз на 5 місяців:</p>
+                <p className="font-medium text-accent-foreground mb-2">Прогноз на 5 років:</p>
                 <div className="flex flex-wrap gap-2">
                   {forecastData.map((f) => (
                     <span key={f.month} className="px-2 py-1 rounded bg-card text-xs">
